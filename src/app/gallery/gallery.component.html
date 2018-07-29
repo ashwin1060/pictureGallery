@@ -1,0 +1,29 @@
+<h2>{{title}}</h2>
+<div class="row">
+    <div class="btn-group">
+        <div class="btn-align">    
+            <button type="button" class="btn btn-sm btn-dark" [class.active]="filterBy=='all'" (click)="filterBy='all'">All</button>
+    
+            <button type="button" class="btn btn-sm btn-dark" [class.active]="filterBy=='Page'" (click)="filterBy='Page'">Page</button>
+        
+            <button type="button" class="btn btn-sm btn-dark" [class.active]="filterBy=='Diwali'" (click)="filterBy='Diwali'">Diwali</button>
+        
+            <button type="button" class="btn btn-sm btn-dark" [class.active]="filterBy=='Car'" (click)="filterBy='Car'">Car</button>
+        
+            <button type="button" class="btn btn-sm btn-dark" [class.active]="filterBy=='Scoville'" (click)="filterBy='Scoville'">Scoville</button>
+        
+            <button type="button" class="btn btn-sm btn-dark" [class.active]="filterBy=='Road Trip'" (click)="filterBy='Road Trip'">Road Trip</button>
+        
+            <button type="button" class="btn btn-sm btn-dark" [class.active]="filterBy=='Flagstaff'" (click)="filterBy='Flagstaff'">Flagstaff</button>
+        
+            <button type="button" class="btn btn-sm btn-dark" [class.active]="filterBy=='Spartan'" (click)="filterBy='Spartan'">Spartan</button>
+        </div>
+    </div>
+    <ul id="thumbnailsList">
+        <li *ngFor="let image of (visibleImages | imageFilter:filterBy)">
+            <a [routerLink] = "['/image',image.id]">
+                <img src="{{image.url}}" class="tn" width="200" height="160">
+            </a>
+        </li>
+    </ul>
+</div>
